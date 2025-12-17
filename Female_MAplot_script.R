@@ -77,7 +77,7 @@ ggplot(res_overall_df, aes(x = baseMean, y = log2FoldChange)) +
   geom_point(aes(color = significant), alpha = 0.5, size = 1) +
   scale_color_manual(
     values = c("grey50", "red"), 
-    labels = c("Not significant", "FDR < 0.1"),
+    labels = c("Not significant", "FDR < 0.05"),
     name = "Significance"
   ) +
   scale_x_log10(
@@ -97,7 +97,7 @@ ggplot(res_overall_df, aes(x = baseMean, y = log2FoldChange)) +
   labs(
     title = "MA Plot: Long COVID vs Non-Long COVID",
     subtitle = paste0(sum(res_overall_df$significant, na.rm = TRUE), 
-                      " significant genes (FDR < 0.1)"),
+                      " significant genes (FDR < 0.05)"),
     x = "Mean of raw counts (log10 scale)",
     y = "Log2 Fold Change"
   ) +
